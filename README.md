@@ -8,7 +8,7 @@ SQL + Python analysis that traces every creator through 4 activation stages, com
 
 ## Problem
 
-Froker was spending budget acquiring creators (social ads, referrals, partnerships) but activation was poor. Marketing measured signups. Product measured posts. Nobody had connected the two to find where creators were dying in the funnel — so nobody was fixing the right thing.
+The startup was spending budget acquiring creators (social ads, referrals, partnerships) but activation was poor. Marketing measured signups. Product measured posts. Nobody had connected the two to find where creators were dying in the funnel — so nobody was fixing the right thing.
 
 ---
 
