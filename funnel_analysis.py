@@ -35,20 +35,36 @@ base = datetime(2024, 9, 1)
 import random
 random.seed(42)
 
+def _load_funnel_config() -> dict:
+    """
+    Load calibrated stage conversion rates from funnel_config.py.
+    Rates were derived from real creator activation data — proprietary.
+
+    Implementation: proprietary — available on request.
+    Copy funnel_config.example.py → funnel_config.py to run with your own values.
+    """
+    try:
+        import funnel_config
+        return funnel_config.STAGE_CONVERSION_RATES
+    except ImportError:
+        raise RuntimeError(
+            "funnel_config.py not found. "
+            "Copy funnel_config.example.py → funnel_config.py and fill in your values."
+        )
+
+_RATES = _load_funnel_config()
+
 for i in range(200):
     signup = base + timedelta(days=random.randint(0, 60))
 
-    # Stage 2: 78% complete profile
-    profile_complete = signup + timedelta(days=random.randint(0, 2)) if random.random() < 0.78 else None
+    profile_complete = signup + timedelta(days=random.randint(0, 2)) if random.random() < _RATES["profile_complete"] else None
 
-    # Stage 3: only 41% of profile-completers post (big drop)
     first_post = None
-    if profile_complete and random.random() < 0.41:
+    if profile_complete and random.random() < _RATES["first_post"]:
         first_post = profile_complete + timedelta(days=random.randint(1, 14))
 
-    # Stage 4: 62% of posters get a brand deal
     first_deal = None
-    if first_post and random.random() < 0.62:
+    if first_post and random.random() < _RATES["first_deal"]:
         first_deal = first_post + timedelta(days=random.randint(3, 30))
 
     DEMO_CREATORS.append({
