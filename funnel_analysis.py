@@ -1,5 +1,5 @@
 """
-Froker Creator Acquisition Funnel Analysis
+Creator Acquisition Funnel Analysis
 ==========================================
 Traces every creator through 4 activation stages and computes
 drop-off rates, cohort retention, and a prioritised fix recommendation.
@@ -7,7 +7,7 @@ drop-off rates, cohort retention, and a prioritised fix recommendation.
 Built Aug 2024 – Aug 2025 — pure Python + SQL (SQLite demo).
 
 Problem:
-  Froker is acquiring creators but activation is low. Marketing sees
+  The platform is acquiring creators but activation is low. Marketing sees
   signup numbers, product sees post numbers — nobody has connected the
   two to find where creators are dying in the funnel.
 
@@ -124,7 +124,7 @@ def run_funnel(conn: sqlite3.Connection) -> None:
     s1, s2, s3, s4 = row
 
     print("\n" + "="*65)
-    print("  FROKER CREATOR ACQUISITION FUNNEL")
+    print("  CREATOR ACQUISITION FUNNEL")
     print("="*65)
     print(f"\n  Stage 1 — Signup:         {s1:>4}  (100%)")
     print(f"  Stage 2 — Profile Done:   {s2:>4}  ({s2/s1*100:.1f}%)  drop: {(1-s2/s1)*100:.1f}%")

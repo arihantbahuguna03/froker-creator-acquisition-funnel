@@ -1,4 +1,4 @@
-# Froker Creator Acquisition Funnel Analysis
+# Creator Acquisition Funnel Analysis
 
 SQL + Python analysis that traces every creator through 4 activation stages, computes drop-off rates and cohort retention, and delivers one prioritised fix recommendation per major drop-off point.
 
